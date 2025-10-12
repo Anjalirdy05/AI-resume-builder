@@ -77,10 +77,7 @@ export default function App() {
   const printRef = useRef<HTMLDivElement>(null);
   const portfolioPrintRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = useReactToPrint({
-    content: () => printRef.current,
-    documentTitle: `${resume.name || "resume"}`,
-  });
+  // Removed unused handlePrint
 
   const handlePortfolioPrint = useReactToPrint({
     content: () => portfolioPrintRef.current,
@@ -298,7 +295,6 @@ export default function App() {
 
       {/* ✅ AI Toolbox for Portfolio */}
       <AIPortfolioToolbox
-        portfolio={portfolio}
         onApply={(updates) => {
           setPortfolio((prev) => ({
             ...prev,
@@ -331,7 +327,7 @@ export default function App() {
 
     {/* Preview area */}
     <div ref={portfolioPrintRef}>
-      <PortfolioPreview value={portfolio} template={portfolioTemplate} />
+      <PortfolioPreview value={portfolio} template={portfolioTemplate as "modern" | "minimal" | "dark"} />
     </div>
   </div>
 )}

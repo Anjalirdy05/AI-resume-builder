@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import type { Portfolio } from "../App";
 
 type Props = {
-  portfolio: Portfolio;
   onApply: (updates: Partial<Portfolio>) => void;
 };
 
@@ -19,7 +18,7 @@ const DOMAINS = [
   "Cloud Engineer",
 ];
 
-export default function AIPortfolioToolbox({ portfolio, onApply }: Props) {
+export default function AIPortfolioToolbox({ onApply }: Props) {
   const [domain, setDomain] = useState<string>("Frontend Developer");
   const [loading, setLoading] = useState(false);
 
