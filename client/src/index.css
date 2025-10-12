@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure full height layout */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Print-specific styles */
+@media print {
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact; /* ensures Tailwind colors show */
+    print-color-adjust: exact;         /* modern browsers */
+  }
+
+  .no-print {
+    display: none !important; /* Hide buttons like Print / Download */
+  }
+
+  .print-area {
+    box-shadow: none !important;
+    background: white !important;
+    width: 100%;
+    max-width: 210mm; /* Fit A4 width */
+    margin: 0 auto;
+  }
+}
